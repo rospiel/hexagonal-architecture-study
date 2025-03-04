@@ -16,7 +16,7 @@ services:
   adminer:
     image: adminer
     ports:
-      - "8181:8080"
+      - "8181:8080" # http://localhost:8181/?server=mysqlsrv
     networks:
       - mysql-compose-network
 
