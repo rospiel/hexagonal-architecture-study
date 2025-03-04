@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: 'apiBankSlip'
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: root
+    password: 'root'
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+
+beeceptor:
+  api:
+    bank-slip:
+      url: https://bankslip.free.beeceptor.com
+
