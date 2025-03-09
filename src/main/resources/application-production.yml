@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: 'apiBankSlip'
+
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://localhost:3306/bankSlip?autoReconnect=true&useSSL=false&createDatabaseIfNotExist=true
+    username: root
+    password: ${DB_PASSWORD} #Environment variable
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 3
+      idle-timeout: 10000
+
+
+  jpa:
+    show-sql: true
+    generate-ddl: true #to create tables
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+beeceptor:
+  api:
+    bank-slip:
+      url: https://bankslip.free.beeceptor.com
