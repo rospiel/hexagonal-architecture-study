@@ -15,7 +15,6 @@ import com.bank.utils.Constants;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.CacheControl;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -41,7 +40,6 @@ public class BankSlipController {
             @ApiResponse(responseCode = "422", description = "It was not possible to process the request", content = @Content(schema = @Schema))
     })
     @PostMapping(value = Constants.VERSION_1, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<BankSlipTaxResponseDTO> save(@io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Properties of a bank slip to calculate tax", required = true) @Valid @RequestBody BankSlipTaxRequestDTO request) {
         BankSlipTax bankSlipTax = calculationBankSlipPort.execute(request.getCode(), request.getPaymentDate());
         BankSlipTaxResponseDTO bankSlipTaxResponse = bankSlipMapper.toBankSlipTaxResponseDTOBy(bankSlipTax);
