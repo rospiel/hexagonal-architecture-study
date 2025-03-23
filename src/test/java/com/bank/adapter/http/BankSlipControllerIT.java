@@ -2,6 +2,7 @@ package com.bank.adapter.http;
 
 import com.bank.adapter.http.DTO.BankSlipTaxRequestDTO;
 import com.bank.adapter.http.DTO.BankSlipTaxResponseDTO;
+import com.bank.config.IntegrationTestConfig;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +17,8 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.OK;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class BankSlipControllerIT {
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+class BankSlipControllerIT extends IntegrationTestConfig {
 
     @Autowired
     private TestRestTemplate testRestTemplate;
