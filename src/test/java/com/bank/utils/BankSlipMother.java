@@ -20,4 +20,13 @@ public class BankSlipMother {
                 .dueDate(LocalDate.now())
                 .build();
     }
+
+    public static BankSlip buildBankSlipOther() {
+        return BankSlip.builder()
+                .code(RandomStringUtils.randomNumeric(20))
+                .type(BankSlipTypeEnum.OTHER)
+                .value(new BigDecimal(String.join(".", RandomStringUtils.randomNumeric(3), RandomStringUtils.randomNumeric(2))))
+                .dueDate(LocalDate.now())
+                .build();
+    }
 }
